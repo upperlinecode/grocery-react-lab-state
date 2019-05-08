@@ -1,26 +1,58 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import ShoppingCart from './components/shoppingcart'
+import Products from './components/products'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const productSelection = {
+  "Apple": {
+    price: 1.99,
+  },
+  "LoafOfBread": {
+    price: 1.50,
+  },
+  "Milk": {
+    price: 2.50,
+  },
+}
+
+const modifyCart = (cart, item, n) => {
+  cart[item] = (cart[item] || 0) + n
+  return cart
+}
+
+const App = () => {
+  const component = new React.Component()
+
+  component.state = {
+    cart: {}
+  }
+
+  const addToShoppingCart = item => {
+    component.setState(prevState => {
+      modifyCart(prevState.cart, item, 1)
+      return prevState
+    })
+  }
+
+  const removeFromShoppingCart = item => {
+    component.setState(prevState => {
+      modifyCart(prevState.cart, item, -1)
+      return prevState
+    })
+  }
+
+  component.render = () => {
+    return (
+      <div>
+        <ShoppingCart cart={component.state.cart}/>
+        <Products
+          minusCallback={removeFromShoppingCart}
+          plusCallback={addToShoppingCart}
+          selection={productSelection}
+        />
+      </div>
+  )}
+  return component
 }
 
 export default App;
