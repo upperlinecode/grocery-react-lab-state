@@ -7,7 +7,7 @@ const productSelection = {
   "Apple": {
     price: 1.99,
   },
-  "LoafOfBread": {
+  "Loaf of Bread": {
     price: 1.50,
   },
   "Milk": {
@@ -43,7 +43,7 @@ const App = () => {
 
   component.render = () => {
     return (
-      <div>
+      <div className="App">
         <ShoppingCart cart={component.state.cart}/>
         <Products
           minusCallback={removeFromShoppingCart}

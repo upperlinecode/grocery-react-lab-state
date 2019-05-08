@@ -1,0 +1,7 @@
+.Products {
+  display: flex;
+}
+
+.Product {
+  margin: 1em;
+}

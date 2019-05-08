@@ -1,0 +1,5 @@
+.App {
+  display: grid;
+  grid-template-columns: 15em auto;
+  grid-template-rows: auto;
+}
