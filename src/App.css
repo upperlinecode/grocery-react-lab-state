@@ -1,7 +1,8 @@
 .App {
   display: grid;
   grid-template-columns: 250px auto;
-  grid-template-rows: 156px calc(100vh - 156px);
+  grid-template-rows: 156px auto;
+  min-height: 100vh;
 }
 
 .App .Hero {
