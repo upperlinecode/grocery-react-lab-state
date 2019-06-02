@@ -1,5 +1,9 @@
 .App {
   display: grid;
-  grid-template-columns: 15em auto;
-  grid-template-rows: auto;
+  grid-template-columns: 250px auto;
+  grid-template-rows: 156px calc(100vh - 156px);
+}
+
+.App .Hero {
+  grid-column: span 2;
 }

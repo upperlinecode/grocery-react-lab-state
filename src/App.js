@@ -1,55 +1,56 @@
-import React from 'react';
-import './App.css';
+import React from 'react'
+import './App.css'
 import ShoppingCart from './components/shoppingcart'
-import Products from './components/products'
-
-const productSelection = {
-  "Apple": {
-    price: 1.99,
-  },
-  "Loaf of Bread": {
-    price: 1.50,
-  },
-  "Milk": {
-    price: 2.50,
-  },
-}
-
-const modifyCart = (cart, item, n) => {
-  cart[item] = (cart[item] || 0) + n
-  return cart
-}
+import ProductList from './components/productList'
+import Hero from './components/hero'
 
 const App = () => {
   const component = new React.Component()
 
+  // Inventory - we might normally prefer to use a database, but this is a good placeholder.
+  const foods = [  "Apple", "Loaf of Bread", "Milk"]
+  const priceList = {
+    "Apple": 1.99,
+    "Loaf of Bread": 1.50,
+    "Milk": 2.50,
+  }
+
   component.state = {
-    cart: {}
+    cart: [],
+    total: 0
   }
 
-  const addToShoppingCart = item => {
-    component.setState(prevState => {
-      modifyCart(prevState.cart, item, 1)
-      return prevState
-    })
+  // The add and remove functions should update the state's cart and the total
+  const addToShoppingCart = (item) => {
+    let updatedState = {...component.state}
+    updatedState.cart.push(item)
+    updatedState.total += priceList[item]
+    component.setState(updatedState)
   }
-
-  const removeFromShoppingCart = item => {
-    component.setState(prevState => {
-      modifyCart(prevState.cart, item, -1)
-      return prevState
-    })
+  const removeFromShoppingCart = (item) => {
+    let updatedState = {...component.state}
+    // Remove the object from the cart
+    const itemToRemove = updatedState.cart.indexOf(item)
+    // Splice the array together, removing the item to remove
+    updatedState.cart.splice(itemToRemove ,1)
+    // Decrement the price
+    updatedState.total -= priceList[item]
+    component.setState(updatedState)
   }
 
   component.render = () => {
     return (
       <div className="App">
-        <ShoppingCart cart={component.state.cart}/>
-        <Products
-          minusCallback={removeFromShoppingCart}
-          plusCallback={addToShoppingCart}
-          selection={productSelection}
-        />
+        <Hero/>
+        <ShoppingCart cart={component.state.cart} prices={priceList} total={component.state.total}/>
+        <div className="main">
+          <ProductList
+            removeFromShoppingCart={removeFromShoppingCart}
+            addToShoppingCart={addToShoppingCart}
+            foods={foods}
+            priceList={priceList}
+          />
+        </div>
       </div>
   )}
   return component
