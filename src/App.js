@@ -20,21 +20,12 @@ const App = () => {
     total: 0
   }
 
-  // The add and remove functions should update the state's cart and the total
+  // The add and remove functions should update the state's cart and the total.
+  // The add function has been built already. The remove function has not.
   const addToShoppingCart = (item) => {
     let updatedState = {...component.state}
     updatedState.cart.push(item)
     updatedState.total += priceList[item]
-    component.setState(updatedState)
-  }
-  const removeFromShoppingCart = (item) => {
-    let updatedState = {...component.state}
-    // Remove the object from the cart
-    const itemToRemove = updatedState.cart.indexOf(item)
-    // Splice the array together, removing the item to remove
-    updatedState.cart.splice(itemToRemove ,1)
-    // Decrement the price
-    updatedState.total -= priceList[item]
     component.setState(updatedState)
   }
 
@@ -42,14 +33,9 @@ const App = () => {
     return (
       <div className="App">
         <Hero/>
-        <ShoppingCart cart={component.state.cart} prices={priceList} total={component.state.total}/>
+        <ShoppingCart />
         <div className="main">
-          <ProductList
-            removeFromShoppingCart={removeFromShoppingCart}
-            addToShoppingCart={addToShoppingCart}
-            foods={foods}
-            priceList={priceList}
-          />
+          <ProductList foods={foods}/>
         </div>
       </div>
   )}
