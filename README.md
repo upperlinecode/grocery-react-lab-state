@@ -5,10 +5,10 @@
 ## The Goal
 In this lab, you're going to build the front-end for a digital grocery store! Users will be able to add and remove items to and from their cart and see a live total updated as they make changes.
 
-## The Setup
+## Getting Started
 
 1. Clone this repository using `git clone`
-2. `cd` into the `grocery-react-lab-state` folder
+2. `cd` into the project folder
 3. `npm install`
 4. `npm start`
 
@@ -52,9 +52,9 @@ Now that state is updating, we need to get the contents on screen. Remember that
 ###### Stretch features:
 * Right now, you are probably seeing unusual price formats like $3.5 instead of $3.50, and you may get some rounding errors in JavaScript that will lead to even wackier issues like $1.989999999999 (instead of $1.99). Consider creating a `PriceFormatter` function to convert a number into a string that always has exactly two digits after the decimal point.
 
-### Bigger Stretches
+## Extensions
 (These don't really have to be done in a certain order).
 * Most shopping carts have the option for you to click a little `x` next to the item to remove it from your cart. See if you can figure out how to do that.
 * Our shopping cart is really disorganized and really inefficient. Most users would expect something more like `Apples, 2 @ $1.99: $3.98` instead of listing each as a separate line item. This can be achieved by either creating a more dynamic cart structure behind the scenes (in state), or by writing some helper functions in the `ShoppingCart` component.
 * Since `ProductList` basically has only one job - to render out all the `Product` components, both are probably unnecessary. Abstract one away and use a `.map()` method to render all the products instead.
-* Right now our inventory says which items we have for sale, but doesn't keep track of quantities, so if a user ordered more apples than we have in stock, we'd be unable to fulfill the order. Figure out how we can handle that. 
+* Right now our inventory says which items we have for sale, but doesn't keep track of quantities, so if a user ordered more apples than we have in stock, we'd be unable to fulfill the order. Figure out how we can handle that.
