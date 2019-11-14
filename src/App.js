@@ -28,6 +28,7 @@ const App = () => {
     updatedState.total += priceList[item]
     component.setState(updatedState)
   }
+  console.log(addToShoppingCart)
 
   component.render = () => {
     return (
