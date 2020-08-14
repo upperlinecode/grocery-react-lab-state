@@ -2,7 +2,7 @@ import React from 'react';
 
 function Product(props) {
   return (
-    <div className="Product" key={props.name} >
+    <div className="Product" >
       <h2>NAME</h2>
       <h3>$$PRICE</h3>
       <div className="buttons">
