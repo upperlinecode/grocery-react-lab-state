@@ -1,6 +1,6 @@
-import React from 'react'
+import React from 'react';
 
-const Product = (props) => {
+function Product(props) {
   return (
     <div className="Product" key={props.name} >
       <h2>NAME</h2>
@@ -10,7 +10,7 @@ const Product = (props) => {
         <button>Remove</button>
       </div>
     </div>
-  )
+  );
 }
 
 export default Product;

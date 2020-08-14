@@ -1,7 +1,7 @@
 import React from 'react';
-import './shoppingcart.css'
+import './shoppingcart.css';
 
-const ShoppingCart = (props) => {
+function ShoppingCart(props) {
   return (
     <div className="ShoppingCart">
         <div className="cartItem">

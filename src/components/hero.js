@@ -1,7 +1,7 @@
 import React from 'react';
 import './hero.css';
 
-const Hero = () => {
+function Hero() {
   return (
     <div className="Hero">
       <h1>Foodster</h1>
