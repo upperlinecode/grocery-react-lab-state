@@ -2,12 +2,12 @@ import React from 'react';
 
 function Product(props) {
   return (
-    <div className="Product" key={props.name} >
-      <h2>NAME</h2>
-      <h3>$$PRICE</h3>
+    <div className="Product">
+      <h2>{props.item.name}</h2>
+      <h3>${props.item.price}</h3>
       <div className="buttons">
-        <button onClick={()=>{console.log("add button test")}}>Add</button>
-        <button>Remove</button>
+        <button onClick={()=>{props.add(props.item)}}>Add</button>
+        <button onClick={()=>{props.remove(props.item)}}>Remove</button>
       </div>
     </div>
   );
