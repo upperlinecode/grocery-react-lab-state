@@ -18,8 +18,8 @@ Before starting, look at the `App.js` file, and pay special attention to the com
 
 ###### Core features:
 1. In `productList.js`, Replace the placeholder text with at least one `<Product />` component.
-2. The `ProductList` component has a prop called `foods`, which is an array of food names (as Strings). Pass the first string in that array down to the first `<Product />` component as a prop, and then go display the product name as part of the `Product` component in the `product.js` file.
-3. In the `App.js` file, pass in the `priceList` to the `ProductList` component, and then in the `productList.js` file, pass the correct price to the first product. Now display that price on the product.
+2. The `ProductList` component has a prop called `inventory`, which is an array of food objects. Pass the first string in that array down to the first `<Product />` component as a prop (called something like `name`), and then go display the product name as part of the `Product` component in the `product.js` file.
+3. Using a similar strategy as in step 2, try to display that price on the product.
 4. Complete this for all three of the products in our starting inventory.
 
 ###### Stretch features:
