@@ -22,8 +22,9 @@ class App extends Component {
   // The add and remove functions should update the state's cart and the total.
   // The add function has been built already. The remove function has not.
   addToShoppingCart = (item) => {
+    let newCart = [...this.state.cart, item]
     this.setState(state => {
-      state.cart.push(item)
+      state.cart = newCart
       return state
     })
   }
